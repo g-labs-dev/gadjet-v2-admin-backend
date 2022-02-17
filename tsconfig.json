@@ -24,14 +24,8 @@
     "importHelpers": true,
     "baseUrl": "src",
     "paths": {
-      "@/*": [
-        "*"
-      ],
-      "@configs/*": [
-        "configs/*"
-      ],
-      "@loaders/*": [
-        "loaders/*"
+      "@config": [
+        "config.ts"
       ],
       "@exceptions/*": [
         "exceptions/*"
@@ -42,8 +36,8 @@
       "@models/*": [
         "models/*"
       ],
-      "@routes/*": [
-        "routes/*"
+      "@routes": [
+        "routes/index.ts"
       ],
       "@services/*": [
         "services/*"
