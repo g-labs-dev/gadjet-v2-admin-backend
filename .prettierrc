@@ -4,5 +4,15 @@
   "singleQuote": true,
   "trailingComma": "all",
   "semi": true,
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "importOrder": [
+    "^@config/(.*)$",
+    "^@routes/(.*)$",
+    "^@services/(.*)$",
+    "^@utils/(.*)$",
+    "^@models/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }
