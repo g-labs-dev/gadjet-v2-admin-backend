@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "cross-env NODE_ENV=development nodemon",
-    "build": "cross-env NODE_ENV=production rm -rf dist && tsc",
+    "build": "cross-env NODE_ENV=production rm -rf dist && tsc && npx tsc-alias",
     "types": "npm install https://github.com/g-labs-dev/gadjet-v2-types.git",
     "deploy": "npm run build && gcloud app deploy --project gadjet-v2 -q"
   },
