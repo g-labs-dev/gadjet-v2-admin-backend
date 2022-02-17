@@ -5,7 +5,9 @@ import * as branchService from '@services/branch.service';
 
 import onError from '@utils/error';
 
-export const branchRouter = (router: Router) => {
+const router = Router({ mergeParams: true, caseSensitive: true });
+
+export const branchRouter = () => {
   router.get<BranchType.GET_DETAIL_PARAMS, BranchType.GET_DETAIL_RESPONSE>('/:branchId', async (req, res) => {
     const { branchId } = req.params;
     try {
@@ -207,4 +209,6 @@ export const branchRouter = (router: Router) => {
       }
     },
   );
+
+  return router;
 };
