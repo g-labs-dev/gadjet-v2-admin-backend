@@ -1,8 +1,11 @@
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 const config = {
   env: process.env.NODE_ENV,
+  jwtSecret: process.env.JWT_SECRET,
+  passwordHash: process.env.PASSWORD_HASH,
   sequelize: {
     development: {
       database: process.env.DB,

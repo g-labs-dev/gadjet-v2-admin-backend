@@ -9,7 +9,7 @@ const host = '0.0.0.0' as const;
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 
 app.use('/api', routes());
