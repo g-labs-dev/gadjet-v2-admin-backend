@@ -7,9 +7,10 @@ import BranchRentees from '@models/BranchRentees.model';
 import BranchSettlements from '@models/BranchSettlements.model';
 import BranchSublets from '@models/BranchSublets.model';
 import Branches from '@models/Branches.model';
+import Hqs from '@models/Hqs.model';
 
 export const getBranch = (branchId: number) => {
-  return Branches.findOne({ where: { branchId } });
+  return Branches.findOne({ where: { branchId }, include: [{ model: Hqs, as: 'hq' }] });
 };
 
 export const getBranches = (hqId: number) => {
