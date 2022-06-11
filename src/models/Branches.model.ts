@@ -1,3 +1,8 @@
+import * as M from 'gadjet-v2-types/dist/model';
+import { DataTypes, Model } from 'sequelize';
+
+import { sequelize } from '@utils/sequelize';
+
 import BranchAutomations from './BranchAutomations.model';
 import BranchBusinesses from './BranchBusinesses.model';
 import BranchContractDocuments from './BranchContractDocuments.model';
@@ -5,15 +10,11 @@ import BranchRentees from './BranchRentees.model';
 import BranchRoles from './BranchRoles.model';
 import BranchSettlements from './BranchSettlements.model';
 import BranchSublets from './BranchSublets.model';
+import Contracts from './Contracts.model';
 import Floors from './Floors.model';
 import Hqs from './Hqs.model';
-import SpaceTypes from './SpaceTypes.model';
-
-import { sequelize } from '@utils/sequelize';
-import * as M from 'gadjet-v2-types/dist/model';
-import { DataTypes, Model } from 'sequelize';
-import Contracts from './Contracts.model';
 import Payments from './Payments.model';
+import SpaceTypes from './SpaceTypes.model';
 
 type Attributes = SequelizeTimeStamps & M.Branches;
 
@@ -29,6 +30,8 @@ export default class Branches extends Model<Attributes, CreationAttributes> impl
   address: string;
   addressDetail: string;
   popbillId: string | null;
+  chargeNotice: number;
+  remainDate: number;
 
   hq?: M.Hqs;
   business?: M.BranchBusinesses;
@@ -55,6 +58,8 @@ Branches.init(
     address: { type: DataTypes.STRING, comment: '지점 주소' },
     addressDetail: { type: DataTypes.STRING, comment: '지점 상세주소' },
     popbillId: { type: DataTypes.STRING, comment: '팝빌 아이디' },
+    chargeNotice: { type: DataTypes.INTEGER },
+    remainDate: { type: DataTypes.INTEGER },
   },
   { sequelize, tableName: 'Branches', timestamps: true },
 );

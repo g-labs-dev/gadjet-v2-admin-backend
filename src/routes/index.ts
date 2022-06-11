@@ -15,7 +15,6 @@ const routes = (): Router => {
   router.use('/auth', authRouter());
 
   router.use('/etc', etcRouter());
-
   return router;
 };
 

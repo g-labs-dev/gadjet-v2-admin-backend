@@ -4,6 +4,7 @@ import BranchAutomations from '@models/BranchAutomations.model';
 import BranchBusinesses from '@models/BranchBusinesses.model';
 import BranchContractDocuments from '@models/BranchContractDocuments.model';
 import BranchRentees from '@models/BranchRentees.model';
+import BranchRoles from '@models/BranchRoles.model';
 import BranchSettlements from '@models/BranchSettlements.model';
 import BranchSublets from '@models/BranchSublets.model';
 import Branches from '@models/Branches.model';
@@ -53,6 +54,7 @@ export const addBranch = async (hqId: number, branch: Partial<Branches>) => {
     await BranchRentees.create({ branchId: newBranch.branchId }, { transaction });
     await BranchAutomations.create({ branchId: newBranch.branchId }, { transaction });
 
+    // await BranchRoles.create({})
     await transaction.commit();
     return newBranch;
   } catch (error) {

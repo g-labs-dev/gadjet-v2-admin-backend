@@ -10,13 +10,12 @@
     "types": "npm install https://github.com/g-labs-dev/gadjet-v2-types.git",
     "deploy": "npm run build && gcloud app deploy --project gadjet-v2 -q"
   },
-  "author": "kangbyungseon <rkdqudtjs1@naver.com> (https://github.com/rkdqudtjs1)",
+  "author": "leetaeho <rami9014@gmail.com> (https://github.com/rami9014)",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
-    "gadjet-v2-types": "git+https://github.com/g-labs-dev/gadjet-v2-types.git",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.16.1",
@@ -33,6 +32,7 @@
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "gadjet-v2-types": "github:g-labs-dev/gadjet-v2-types",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "ts-node": "^10.5.0",

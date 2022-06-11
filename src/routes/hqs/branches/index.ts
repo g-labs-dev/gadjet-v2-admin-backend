@@ -108,7 +108,7 @@ export const branchRouter = () => {
     }
   });
 
-  router.put<BranchType.UPDATE_PARAMS, BranchType.UPDATE_RESPONSE, BranchType.UPDATE_BODY>('', async (req, res) => {
+  router.put<BranchType.UPDATE_PARAMS, BranchType.UPDATE_RESPONSE, BranchType.UPDATE_BODY>('/:branchId', async (req, res) => {
     const { branchId } = req.params;
     const { branch } = req.body;
     try {

@@ -1,9 +1,12 @@
-import { sequelize } from '@utils/sequelize';
 import * as M from 'gadjet-v2-types/dist/model';
+import { Device, UserStatus } from 'gadjet-v2-types/dist/type';
 import { DataTypes, Model } from 'sequelize';
+
+import { sequelize } from '@utils/sequelize';
+
 import Images from './Images.model';
 import TenantRoles from './TenantRoles.model';
-import { Device, UserStatus } from 'gadjet-v2-types/dist/type';
+
 type Attributes = SequelizeTimeStamps & M.Users;
 
 type CreationAttributes = Partial<M.Users>;
@@ -20,6 +23,7 @@ export default class Users extends Model<Attributes, CreationAttributes> impleme
   code: string;
   status: UserStatus;
   device: null | Device;
+  lastLogin: string;
 
   profile?: M.Images;
   tenantRoles?: M.TenantRoles[];
@@ -38,6 +42,7 @@ Users.init(
     code: { type: DataTypes.STRING },
     status: { type: DataTypes.STRING },
     device: { type: DataTypes.JSON },
+    lastLogin: { type: DataTypes.STRING },
   },
   { sequelize, tableName: 'Users', timestamps: true },
 );
