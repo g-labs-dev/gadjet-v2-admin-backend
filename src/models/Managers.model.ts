@@ -1,7 +1,9 @@
-import { sequelize } from '@utils/sequelize';
 import * as M from 'gadjet-v2-types/dist/model';
-import { ManagerJoinType } from 'gadjet-v2-types/dist/type';
+import { ManagerJoinType, ManagerStatus } from 'gadjet-v2-types/dist/type';
 import { DataTypes, Model } from 'sequelize';
+
+import { sequelize } from '@utils/sequelize';
+
 import BranchRoles from './BranchRoles.model';
 import HqRoles from './HqRoles.model';
 import Images from './Images.model';
@@ -20,6 +22,9 @@ export default class Managers extends Model<Attributes, CreationAttributes> impl
   socialId: string;
   pushToken: string | null;
   profileImageId: number | null;
+  lastLogin: string;
+  resetCode: string;
+  status: ManagerStatus;
 
   profile?: M.Images;
   branchRoles?: M.BranchRoles[];
@@ -37,6 +42,9 @@ Managers.init(
     socialId: { type: DataTypes.STRING, comment: 'social id' },
     pushToken: { type: DataTypes.STRING, comment: 'FCM token' },
     profileImageId: { type: DataTypes.INTEGER },
+    status: { type: DataTypes.STRING },
+    lastLogin: { type: DataTypes.STRING },
+    resetCode: { type: DataTypes.STRING },
   },
   { sequelize, tableName: 'Managers', timestamps: true },
 );

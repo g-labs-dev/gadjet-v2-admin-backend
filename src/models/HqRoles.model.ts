@@ -1,7 +1,9 @@
-import { sequelize } from '@utils/sequelize';
 import * as M from 'gadjet-v2-types/dist/model';
 import { Role } from 'gadjet-v2-types/dist/type';
 import { DataTypes, Model } from 'sequelize';
+
+import { sequelize } from '@utils/sequelize';
+
 import Hqs from './Hqs.model';
 import Managers from './Managers.model';
 
@@ -19,7 +21,7 @@ export default class HqRoles extends Model<Attributes, CreationAttributes> imple
   notice: Role;
   role: Role;
   config: Role;
-
+  branch: Role;
   hq?: M.Hqs;
   manager?: M.Managers;
 }
@@ -35,6 +37,7 @@ HqRoles.init(
     notice: { type: DataTypes.INTEGER },
     role: { type: DataTypes.INTEGER },
     config: { type: DataTypes.INTEGER },
+    branch: { type: DataTypes.INTEGER },
   },
   { sequelize, tableName: 'HqRoles', timestamps: true },
 );

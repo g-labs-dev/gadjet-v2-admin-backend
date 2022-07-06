@@ -1,7 +1,9 @@
-import { sequelize } from '@utils/sequelize';
 import * as M from 'gadjet-v2-types/dist/model';
 import { CreditType } from 'gadjet-v2-types/dist/type';
 import { DataTypes, Model } from 'sequelize';
+
+import { sequelize } from '@utils/sequelize';
+
 import Branches from './Branches.model';
 import Images from './Images.model';
 import RentalReservations from './RentalReservations.model';
@@ -22,6 +24,7 @@ export default class Rentals extends Model<Attributes, CreationAttributes> imple
   weekendFlag: boolean;
   shareFlag: boolean;
   imageId: number | null;
+  colorInfo: string;
 
   rentalReservations?: M.RentalReservations[];
   image?: M.Images;
@@ -41,6 +44,7 @@ Rentals.init(
     weekendFlag: { type: DataTypes.BOOLEAN },
     shareFlag: { type: DataTypes.BOOLEAN },
     imageId: { type: DataTypes.INTEGER },
+    colorInfo: { type: DataTypes.STRING },
   },
   { sequelize, tableName: 'Rentals', timestamps: true },
 );
